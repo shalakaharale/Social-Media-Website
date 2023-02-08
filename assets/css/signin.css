@@ -1,0 +1,15 @@
+input{
+    margin: 20px;
+    font-size: large;
+}
+label{
+    font-size: large;
+    color: black;
+}
+#form{
+    justify-content: center;
+    background-color: aqua;
+    margin: 20px 100px 100px 20px;
+    width: 500px;
+}
+
