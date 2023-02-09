@@ -82,8 +82,10 @@ module.exports.creaseSession = function (req, res) {
 };
 
 module.exports.signout = function (req, res) {
-  if (req.cookies.user_id) {
-    res.cookies.user_id = null;
-    return res.redirect("/users/signin");
-  }
+  // if (req.cookies.user_id) {
+  //   res.cookies.user_id = null;
+  //   return res.redirect("/users/signin");
+  // }
+  res.clearCookie("user_id");
+  return res.redirect("/users/signin");
 };
