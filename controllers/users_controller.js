@@ -6,12 +6,18 @@ module.exports.profile = function (req, res) {
 };
 
 module.exports.signin = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   return res.render("signin", {
     title: "signin",
   });
 };
 
 module.exports.signup = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   return res.render("signup", {
     title: "signup",
   });
@@ -40,4 +46,15 @@ module.exports.create = function (req, res) {
   });
 };
 
-module.exports.creaseSession = function (req, res) {};
+module.exports.createSession = function (req, res) {
+  return res.redirect("/users/profile");
+};
+
+module.exports.distroySession = function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    return res.redirect("/users/signin");
+  });
+};
