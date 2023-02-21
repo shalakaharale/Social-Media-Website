@@ -7,6 +7,16 @@ const db = require("./config/mongoose");
 const session = require("express-session");
 const passport = require("./config/passport-local-strategy");
 // mongoStore is used to store the session cookie in the db
+const sassMiddleware = require("node-sass-middleware");
+app.use(
+  sassMiddleware({
+    src: "./assets/scss",
+    dest: "./assets/css",
+    debug: true,
+    outputStyle: "expanded",
+    prefix: "/css",
+  })
+);
 let MongoStore = require("connect-mongo");
 app.use(express.urlencoded());
 app.use(cookieParser());
@@ -30,7 +40,7 @@ app.use(
     },
     store: MongoStore.create(
       {
-        mongoUrl: "mongodb://localhost/codial_developement",
+        mongoUrl: "mongodb://localhost/codeial_development",
         autoRemove: "disabled",
       },
       function (err) {

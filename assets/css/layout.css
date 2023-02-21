@@ -1,5 +1,9 @@
-body{
-    margin: 0px;
-    /* text-align: center; */
-    color: blue;
+body {
+  margin: 0px;
+  /* text-align: center; */
+  color: blue;
+}
+
+#layout-main {
+  height: 100%;
 }

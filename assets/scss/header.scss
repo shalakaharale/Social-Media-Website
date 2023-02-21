@@ -1,0 +1,33 @@
+#layout-header{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        background-color: cornflowerblue;
+        box-shadow: 1px 1px 1px 1px lightseagreen;
+    #mini-logo{
+        color: white;
+        font-size: 50px;
+        padding: 25px;
+    }
+    #auth-links{
+        ul{
+            list-style-type: none;
+            margin: 5% 5px;
+            display: flex;
+            
+            li{
+                text-decoration: none;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    a{
+        
+        color: white;
+        text-decoration: none;
+    }
+}
+}
+
