@@ -1,5 +1,30 @@
 <link rel="stylesheet" href="/css/users_profile.css" />
 <h1>Codeial / Profile Page</h1>
 
-<p><%= user.name %></p>
-<p><%= user.email %></p>
+<%if (user.id==user_profile.id){%>
+<h2>Hi <%=user_profile.name%>!!</h2>
+<h3>Update Your Profile Page Here</h3>
+<form action="/users/update/<%=user_profile.id%>" method="Post">
+  <label for="name">Enter Your Name</label>
+  <input
+    type="text"
+    name="name"
+    placeholder="Enter your name"
+    value="<%=user_profile.name%>"
+    required
+  />
+  <label for="email">Enter Your Email</label>
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter your email"
+    value="<%=user_profile.email%>"
+    required
+  />
+  <input type="submit" value="Update" />
+</form>
+<%}else{%>
+<p><%= user_profile.name %></p>
+<p><%= user_profile.email %></p>
+
+<%}%>

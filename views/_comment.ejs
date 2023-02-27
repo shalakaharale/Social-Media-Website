@@ -1,0 +1,11 @@
+<li>
+  <p>
+    <%if(locals.user && locals.user.id==comment.user.id){%>
+    <a href="/comments/destroy/<%=comment.id%>"
+      ><input type="submit" value="Delete"
+    /></a>
+    <%}%> <%=comment.content%>
+    <br />
+    <small><%=comment.user.email%></small>
+  </p>
+</li>

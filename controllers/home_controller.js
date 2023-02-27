@@ -1,13 +1,24 @@
-const Post = require("../models/posts");
-module.exports.home = function (req, res) {
-  Post.find({})
-    .populate("user")
-    .exec(function (err, posts) {
-      return res.render("home", {
-        title: "Home",
-        posts: posts,
+const Post = require("../models/post");
+const User = require("../models/user");
+module.exports.home = async function (req, res) {
+  try {
+    let posts = await Post.find({})
+      .populate("user")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "user",
+        },
       });
-    });
-};
 
-// module.exports.actionName = function(req, res){}
+    let users = await User.find({});
+
+    return res.render("home", {
+      title: "Home",
+      posts: posts,
+      all_users: users,
+    });
+  } catch (err) {
+    console.log("error", err);
+  }
+};
